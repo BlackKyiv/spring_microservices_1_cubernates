@@ -26,17 +26,27 @@ public class MainController {
     }
 
     @GetMapping("/user/random")
-    public void writeUser() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public String writeUser() {
         Object user = restTemplate.getForObject("http://localhost:8002/utility/user-random", Object.class);
         String id = user.toString().split("id=")[1].split(",")[0];
-        Converter.toJSON(id, user);
+        try {
+            Converter.toJSON(id, user);
+            return "File 'user" + id + ".json' is  created!";
+        } catch (IOException e) {
+            return "Something went wrong...";
+        }
     }
 
     @GetMapping("/dog/random")
-    public void writeDog() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public String writeDog() {
         Object dog = restTemplate.getForObject("http://localhost:8002/utility/dog-random", Object.class);
         String id = dog.toString().split("id=")[1].split(",")[0];
-        Converter.toJSON(id, dog);
+        try {
+            Converter.toJSON(id, dog);
+            return "File 'dog" + id + ".json' is  created!";
+        } catch (IOException e) {
+            return "Something went wrong...";
+        }
     }
 
     @GetMapping("/user/{id}")

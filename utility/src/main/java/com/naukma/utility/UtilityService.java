@@ -6,11 +6,10 @@ public class UtilityService {
         User res = new User();
         res.setId(UtilCore.generateInt(10000));
         res.setLogin(UtilCore.generateString());
-        res.setAge(UtilCore.generateInt(1));
+        res.setAge(UtilCore.generateInt(100));
 
         return res;
     }
-
 
     public static Dog createRandomDog() {
         Dog res = new Dog();
