@@ -1,0 +1,22 @@
+{
+  "kind":"Service",
+  "apiVersion":"v1",
+  "metadata":{
+    "name":"utilities",
+    "labels":{
+      "app":"utilities"
+    }
+  },
+  "spec":{
+    "ports": [
+      {
+        "port":8002,
+        "targetPort":"http-server"
+      }
+    ],
+    "selector":{
+      "app":"utilities"
+    },
+    "type": "LoadBalancer"
+  }
+}

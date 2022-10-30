@@ -1,0 +1,37 @@
+{
+  "kind":"ReplicationController",
+  "apiVersion":"v1",
+  "metadata":{
+    "name":"utilities",
+    "labels":{
+      "app":"utilities"
+    }
+  },
+  "spec":{
+    "replicas":3,
+    "selector":{
+      "app":"utilities"
+    },
+    "template":{
+      "metadata":{
+        "labels":{
+          "app":"utilities"
+        }
+      },
+      "spec":{
+        "containers":[
+          {
+            "name":"utilities",
+            "image":"smile2cat/utilities:latest",
+            "ports":[
+              {
+                "name":"http-server",
+                "containerPort":8002
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

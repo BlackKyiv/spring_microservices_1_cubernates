@@ -1,0 +1,37 @@
+{
+  "kind":"ReplicationController",
+  "apiVersion":"v1",
+  "metadata":{
+    "name":"intro-point",
+    "labels":{
+      "app":"intro-point"
+    }
+  },
+  "spec":{
+    "replicas":3,
+    "selector":{
+      "app":"intro-point"
+    },
+    "template":{
+      "metadata":{
+        "labels":{
+          "app":"intro-point"
+        }
+      },
+      "spec":{
+        "containers":[
+          {
+            "name":"intro-point",
+            "image":"smile2cat/intro-point:latest",
+            "ports":[
+              {
+                "name":"http-server",
+                "containerPort":8001
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

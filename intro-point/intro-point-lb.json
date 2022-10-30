@@ -1,0 +1,22 @@
+{
+  "kind":"Service",
+  "apiVersion":"v1",
+  "metadata":{
+    "name":"intro-point",
+    "labels":{
+      "app":"intro-point"
+    }
+  },
+  "spec":{
+    "ports": [
+      {
+        "port":8001,
+        "targetPort":"http-server"
+      }
+    ],
+    "selector":{
+      "app":"intro-point"
+    },
+    "type": "LoadBalancer"
+  }
+}
